@@ -586,7 +586,7 @@ export default formId => connect(
             // add community as last tag
             // This can or not be removed if you are not in one of the known hosts defined in client_config does not matter
             const host = window.location.hostname.toLowerCase();
-            const community = getCommunity(host);
+            const community = 'private' //getCommunity(host);
 
             if (community && !!!category)
                 category = community;
