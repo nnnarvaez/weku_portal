@@ -120,7 +120,7 @@ async function universalRender({host, location, initial_state, offchain, ErrorPa
         if (url.indexOf('/curation-rewards') !== -1) url = url.replace(/\/curation-rewards$/, '/transfers');
         if (url.indexOf('/author-rewards') !== -1) url = url.replace(/\/author-rewards$/, '/transfers');
 
-        const community = getCommunity(host);
+        const community = 'private'// getCommunity(host);
         if (community) {
             if (!url.startsWith("/"))
                 url = '/' + url;
