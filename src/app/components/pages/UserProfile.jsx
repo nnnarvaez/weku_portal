@@ -41,7 +41,8 @@ export default class UserProfile extends React.Component {
         let community = null;
         if(process.env.BROWSER && window){
             const host = window.location.hostname.toLowerCase();
-            community = getCommunity(host);
+            /*community = getCommunity(host);*/
+              community = 'private' // Mod for illuminati
         }
 
         this.state = {community};
