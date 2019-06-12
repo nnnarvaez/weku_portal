@@ -5,14 +5,31 @@ WeKu Website
 
 #### Clone the repository and make a tmp folder
 ```bash
-git clone https://github.com/wekuio/weku_portal.git
+git clone https://github.com/nnnarvaez/weku_portal.git
 cd weku_portal
+mkdir tmp
+yarn global add babel-cli
 yarn install
+yarn run build
+yarn run prod1
+
+```
+
+#### Alterative method | Clone the repository and make a tmp folder
+```bash
+git clone https://github.com/nnnarvaez/weku_portal.git
+cd weku_portal
+mkdir tmp
+yarn global add babel-cli
+yarn install --frozen-lockfile
+yarn run build
+yarn run prod1
+
 ```
 
 To run website in production mode, run:
 
-need sudo to open port 80
+It will run in port 8080
 
 ```bash
 sudo npm run production
@@ -25,13 +42,25 @@ sudo npm run start
 ```
 
 #### Configuration
-configuration files are in config folder
+Move to config folder and copy `defaults.json` to `production.json`
+There you need to define the RPC nodes, the server secret and the mysql database
 
-#### Install mysql server
+If you're intending to run condenser in a production environment one
+configuration option that you will definitely want to edit is
+`server_session_secret` To generate a new value for this setting, you can
+do this:
+
+```bash
+node
+> crypto.randomBytes(32).toString('base64')
+> .exit
+```
+
+Edit `config/production.json` and define the database parameters: using the format `mysql://user:pass@hostname/databasename`.
+
+#### You need mysql server
 
 Recommended version 5.7.16
-
-Once set up, you can set the mysql server configuration option, editing config in `config/production.json`. You will use the format `mysql://user:pass@hostname/databasename`.
 
 #### Database migrations
 
@@ -47,10 +76,3 @@ cd src/db
 yarn exec sequelize db:migrate
 ```
 
-## Issues
-
-To report a non-critical issue, please file an issue on this GitHub project.
-
-If you find a security issue please report details to: security@weku.io
-
-We will evaluate the risk and make a patch available before filing the issue.
