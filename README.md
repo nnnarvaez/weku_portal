@@ -11,9 +11,9 @@ mkdir tmp
 yarn global add babel-cli
 yarn install
 yarn run build
-yarn run prod1
-
 ```
+
+
 
 #### Alterative method | Clone the repository and make a tmp folder
 ```bash
@@ -23,7 +23,6 @@ mkdir tmp
 yarn global add babel-cli
 yarn install --frozen-lockfile
 yarn run build
-yarn run prod1
 
 ```
 
@@ -32,21 +31,23 @@ To run website in production mode, run:
 It will run in port 8080
 
 ```bash
-sudo npm run production
+
+yarn run prod1
+
 ```
 
-To run condenser in development mode, run:
+
+~~To run condenser in development mode, run:~~ (Does this make any difference?)
 
 ```bash
 sudo npm run start
 ```
 
 #### Configuration
-Move to config folder and copy `defaults.json` to `production.json`
-There you need to define the RPC nodes, the server secret and the mysql database
+Move to `/config` folder and copy `defaults.json` to `production.json`
+Edit `production.json`; you need to define the RPC nodes, the server secret and the mysql database
 
-If you're intending to run condenser in a production environment one
-configuration option that you will definitely want to edit is
+
 `server_session_secret` To generate a new value for this setting, you can
 do this:
 
@@ -57,6 +58,8 @@ node
 ```
 
 Edit `config/production.json` and define the database parameters: using the format `mysql://user:pass@hostname/databasename`.
+By the end of the file is the chain ID and the RPC nodes.
+
 
 #### You need mysql server
 
