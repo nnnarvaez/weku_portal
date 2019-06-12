@@ -50,7 +50,7 @@ export function* fetchState(location_change_action) {
     if (url.indexOf("/author-rewards") !== -1) url = url.replace("/author-rewards", "/transfers");
 
     const host = window.location.hostname.toLowerCase();
-    const community = getCommunity(host);
+    const community = 'private' //getCommunity(host);
     if(community && pathname.indexOf(community) < 0)
         url = "/$" + community + pathname; // `/${community}${pathname}`;
 
