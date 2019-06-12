@@ -89,11 +89,11 @@ class PostFull extends React.Component {
     constructor() {
         super();
 
-        let community = '';
-        if(process.env.BROWSER){
+        let community = 'private';
+        /*if(process.env.BROWSER){
             const host = window.location.hostname.toLowerCase();
             community = getCommunity(host);
-        }
+        }*/
 
         this.state = {isBookmarked: false, community};
         this.fbShare = this.fbShare.bind(this);
