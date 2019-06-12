@@ -50,7 +50,7 @@ class Topics extends React.Component {
 
         categories = categories.map(cat => {
             if (cat.indexOf('%') >= 0) return null; // filter out encodedURI
-            if (cat.indexOf('community-') >= 0) return null; // filter out community tag
+            /*if (cat.indexOf('community-') >= 0) return null; // filter out community tag*/
             const link = order ? `/${order}/${cat}` : `/hot/${cat}`;
             return (<li key={cat}>
                 <Link to={link} activeClassName="active">{cat}</Link>
